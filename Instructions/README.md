@@ -16,7 +16,7 @@ The data set included with the assignment is based on 2014 ACS 1-year estimates 
 
 2. Clone the new repository to your computer.
 
-3. Inside your local git repository, create a directory for the D3 challenge. Use the folder name to correspond to the challenge: **D3_data_journalism**.
+3. Inside your local git repository, create a directory for the D3 challenge. Use the folder name to correspond to the challenge: **https://github.com/HIna-Ahmad/D3-Challenge.git**.
 
 4. This homework utilizes both **html** and **Javascript** so be sure to add all the necessary files. These will be the main files to run for analysis.
 
@@ -32,13 +32,13 @@ You need to create a scatter plot between two of the data variables such as `Hea
 
 Using the D3 techniques we taught you in class, create a scatter plot that represents each state with circle elements. You'll code this graphic in the `app.js` file of your homework directory—make sure you pull in the data from `data.csv` by using the `d3.csv` function. Your scatter plot should ultimately appear like the image at the top of this section.
 
-* Include state abbreviations in the circles.
+- Include state abbreviations in the circles.
 
-* Create and situate your axes and labels to the left and bottom of the chart.
+- Create and situate your axes and labels to the left and bottom of the chart.
 
-* Note: You'll need to use `python -m http.server` to run the visualization. This will host the page at `localhost:8000` in your web browser.
+- Note: You'll need to use `python -m http.server` to run the visualization. This will host the page at `localhost:8000` in your web browser.
 
-- - -
+---
 
 ### Bonus: Impress the Boss (Optional Assignment)
 
@@ -50,7 +50,7 @@ Why make a static graphic when D3 lets you interact with your data?
 
 You're going to include more demographics and more risk factors. Place additional labels in your scatter plot and give them click events so that your users can decide which data to display. Animate the transitions for your circles' locations as well as the range of your axes. Do this for two risk factors for each axis. Or, for an extreme challenge, create three for each axis.
 
-* Hint: Try binding all of the CSV data to your circles. This will let you easily determine their x or y values when you click the labels.
+- Hint: Try binding all of the CSV data to your circles. This will let you easily determine their x or y values when you click the labels.
 
 #### 2. Incorporate d3-tip
 
@@ -58,25 +58,25 @@ While the ticks on the axes allow us to infer approximate values for each circle
 
 ![8-tooltip](Images/8-tooltip.gif)
 
-* Check out [David Gotz's example](https://bl.ocks.org/davegotz/bd54b56723c154d25eedde6504d30ad7) to see how you should implement tooltips with d3-tip.
+- Check out [David Gotz's example](https://bl.ocks.org/davegotz/bd54b56723c154d25eedde6504d30ad7) to see how you should implement tooltips with d3-tip.
 
-- - -
+---
 
 ### Assessment
 
 Your final product will be assessed on the following metrics:
 
-* Creation of a **new** repository on GitHub called `D3-Challenge` (note the kebab-case). Do not add to an already existing repo.
+- Creation of a **new** repository on GitHub called `D3-Challenge` (note the kebab-case). Do not add to an already existing repo.
 
-* Completion of all steps in the core assignment
+- Completion of all steps in the core assignment
 
-* Coherency of scatter plot (labels, ticks)
+- Coherency of scatter plot (labels, ticks)
 
-* Visual attraction
+- Visual attraction
 
-* Professionalism
+- Professionalism
 
-* Ensure your repository has regular commits (i.e. 20+ commits) and a thorough README.md file
+- Ensure your repository has regular commits (i.e. 20+ commits) and a thorough README.md file
 
 **Good luck!**
 
