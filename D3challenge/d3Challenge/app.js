@@ -1,4 +1,16 @@
+// You need to create a scatter plot between two of the data variables such as `Healthcare vs. Poverty` or `Smokers vs. Age`.
+
+// Using the D3 techniques we taught you in class, create a scatter plot that represents each state with circle elements. You'll code this graphic in the `app.js` file of your homework directory—make sure you pull in the data from `data.csv` by using the `d3.csv` function. Your scatter plot should ultimately appear like the image at the top of this section.
+
+// - Include state abbreviations in the circles.
+
+// - Create and situate your axes and labels to the left and bottom of the chart.
+
+// - Note: You'll need to use `python -m http.server` to run the visualization. This will host the page at `localhost:8000` in your web browser.
+
+// The code for scatter plot is wrapped in this function
 function makeResponsive() {
+  // SVG wrapper dimensions are determined width and height below
   var svgWidth = 1000;
   var svgHeight = 500;
 
@@ -12,24 +24,29 @@ function makeResponsive() {
   var width = svgWidth - margin.left - margin.right;
   var height = svgHeight - margin.top - margin.bottom;
 
+  // Append SVG element
   var svg = d3
     .select("#scatter")
     .append("svg")
     .attr("width", svgWidth)
     .attr("height", svgHeight);
 
+  // Append group element
   var chartGroup = svg
     .append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-  d3.csv("../assets/data/data.csv")
+  // Import Data
+  d3.csv("data.csv")
     .then(function (censusData) {
       console.log(censusData);
+      //Parse
       censusData.forEach(function (data) {
         data.poverty = +data.poverty;
         data.healthcare = +data.healthcare;
       });
 
+      // Create Scale Functions
       var xLinearScale = d3
         .scaleLinear()
         .domain([8, d3.max(censusData, (d) => d.poverty)])
@@ -40,9 +57,11 @@ function makeResponsive() {
         .domain([0, d3.max(censusData, (d) => d.healthcare)])
         .range([height, 0]);
 
+      // Create Axis Functions
       var bottomAxis = d3.axisBottom(xLinearScale);
       var leftAxis = d3.axisLeft(yLinearScale);
 
+      // Append Axes to the Scatter Plot
       chartGroup
         .append("g")
         .attr("transform", `translate(0, ${height})`)
@@ -50,6 +69,7 @@ function makeResponsive() {
 
       chartGroup.append("g").call(leftAxis);
 
+      // Append Circles
       var circlesGroup = chartGroup
         .selectAll("circle")
         .data(censusData)
@@ -80,6 +100,7 @@ function makeResponsive() {
         .attr("font-size", "12px")
         .attr("font-weight", "bold");
 
+      // Initialize Tooltip
       var toolTip = d3
         .tip()
         .attr("class", "tooltip")
@@ -89,16 +110,21 @@ function makeResponsive() {
           return `<strong>${d.state}<strong><hr>${d.poverty}`;
         });
 
+      // Create Tooltip in chartGroup
       chartGroup.call(toolTip);
 
+      // Create Mouseover Event Listener to display Tooltip
       circlesGroup
         .on("mouseover", function (d) {
           toolTip.show(d, this);
         })
+
+        // Create Mouseout Event Listening to hide Tooltop
         .on("mouseout", function (d, index) {
           toolTip.hide(d);
         });
 
+      // Create Axes Labels
       chartGroup
         .append("text")
         .attr("transform", "rotate(-90)")
@@ -121,5 +147,5 @@ function makeResponsive() {
       console.log(error);
     });
 }
-
+// When the browser loads, function is called
 makeResponsive();
